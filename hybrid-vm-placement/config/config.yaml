@@ -1,0 +1,76 @@
+# Master configuration for the VM placement pipeline.
+seed: 42
+
+paths:
+  data_generated: data/generated
+  data_results: data/results
+  graphs: results/graphs
+  reports: results/reports
+  cache: data/generated/cache
+
+topology:
+  type: fat_tree              # fat_tree | tree | custom
+  target_vms_per_server: 8    # used to auto-size the topology from the VM count
+  fat_tree:
+    k: auto                   # "auto" or an even integer (servers = k^3 / 4)
+    latency_ms: {server_edge: 0.02, edge_agg: 0.05, agg_core: 0.10}
+  tree:
+    servers_per_rack: 16
+    racks_per_agg: 4
+    latency_ms: {server_tor: 0.02, tor_agg: 0.05, agg_core: 0.10}
+  custom:
+    path: null                # YAML with servers / switches / links (see README)
+
+servers:
+  target_utilization: 0.60               # aggregate demand / aggregate free capacity
+  capacity_heterogeneity: [0.75, 1.0, 1.5]
+  background_utilization: [0.05, 0.20]   # pre-existing load fraction per server
+
+vms:
+  cpu_choices: [1, 2, 4, 8]
+  cpu_probs: [0.35, 0.35, 0.20, 0.10]
+  ram_per_cpu_gb: [1, 2, 4]
+  bw_base_mbps: [20, 100]
+  bw_traffic_factor: 1.0                 # reserved bandwidth = base + factor * VM traffic
+
+communication:
+  relationships_per_vm: 5.0              # average number of communicating pairs per VM
+  num_relationships: null                # set an integer to override the above
+  group_size_range: [4, 24]              # application-group sizes
+  intra_group_fraction: 0.85             # share of pairs inside the same application group
+  frequency_median: {intra: 40.0, inter: 4.0}   # messages / s
+  frequency_sigma: 1.0
+  message_kb_median: 64.0
+  message_kb_sigma: 0.8
+
+objective:
+  weights: {alpha: 0.70, beta: 0.20, gamma: 0.08, delta: 0.02}
+  comm_weight: frequency                 # frequency | volume | intensity
+  latency_weight: intensity
+
+greedy:
+  group_capacity_fraction: 1.0           # max group demand as a fraction of mean server capacity
+  max_group_size: 64
+  load_balance_weight: 0.05
+
+simulated_annealing:
+  initial_temperature: auto              # "auto" (calibrated) or a number
+  auto_initial_acceptance: 0.3           # target acceptance of uphill moves at T0
+  calibration_samples: 500
+  min_temperature: null                  # null -> initial_temperature * min_temperature_ratio
+  min_temperature_ratio: 1.0e-4
+  cooling_schedule: geometric            # geometric | linear | fast
+  cooling_rate: 0.95
+  iterations_per_temperature: auto       # auto -> max(500, num_vms)
+  max_iterations: 400000
+  convergence_patience: 25               # temperature levels without improvement
+  convergence_tolerance: 1.0e-6          # relative improvement counted as progress
+  convergence_min_temperature_ratio: 0.1 # convergence only tested once T < ratio * T0
+  neighbor_move_probability: 0.7         # chance to propose a server near a communication partner
+  nearest_servers_k: 12
+  max_candidate_tries: 10
+
+experiments:
+  vm_counts: [100, 250, 500, 750, 1000]
+  repeats: 3
+  main_scenario_vms: 1000

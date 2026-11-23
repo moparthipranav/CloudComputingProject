@@ -1,0 +1,13 @@
+{
+  "num_vms": 1000,
+  "num_hosts": 128,
+  "seed": 42,
+  "topology": "fat_tree_k8",
+  "mips_per_core": 2500,
+  "mappings": [
+    "mapping_random.csv",
+    "mapping_greedy.csv",
+    "mapping_simulated_annealing.csv"
+  ],
+  "note": "Optimisation metrics come from the Python model; CloudSim results are produced separately by CloudSimValidator."
+}
