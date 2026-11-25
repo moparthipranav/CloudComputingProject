@@ -32,14 +32,14 @@
     align-items: center;
   }
   #presentation-container {
-    width: 1333px;
-    height: 750px;
-    max-width: 95vw;
-    max-height: 95vh;
+    width: 1400px;
+    height: 787px;
+    max-width: 96vw;
+    max-height: 96vh;
     aspect-ratio: 16 / 9;
     background-color: var(--bg);
     position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
     border-radius: 4px;
     overflow: hidden;
     display: flex;
@@ -49,12 +49,12 @@
     display: none;
     width: 100%;
     height: 100%;
-    padding: 38px 60px;
+    padding: 36px 54px 50px 54px;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
     opacity: 0;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
   }
   .slide.active {
     display: flex;
@@ -62,7 +62,7 @@
   }
   /* Typography */
   .section-tag {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -70,29 +70,29 @@
     margin-bottom: 6px;
   }
   .divider {
-    height: 1px;
+    height: 1.5px;
     background-color: var(--border);
     width: 100%;
     margin-bottom: 12px;
   }
   .slide-title {
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.2;
     margin-bottom: 4px;
   }
   .slide-subtitle {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--secondary);
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   /* Grids & Cards */
   .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 22px;
     flex: 1;
     min-height: 0;
   }
@@ -103,16 +103,19 @@
     flex: 1;
     min-height: 0;
   }
-  .grid-4 {
+  .grid-4-quad {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
   }
   .card {
     background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 3px;
-    padding: 22px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -120,26 +123,27 @@
   .card.accent {
     background-color: var(--accent-bg);
     border-color: var(--border-accent);
+    border-width: 1.5px;
   }
   .card-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .card-subtitle {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     color: var(--accent);
     margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
   .card p, .card li {
-    font-size: 12.5px;
+    font-size: 14px;
     color: var(--primary);
-    line-height: 1.55;
-    margin-bottom: 8px;
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
   .card ul {
     list-style: none;
@@ -150,19 +154,19 @@
     color: var(--accent);
     font-weight: bold;
     display: inline-block;
-    width: 14px;
+    width: 16px;
   }
   /* Stat Badges */
   .stat-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 14px;
   }
   .stat-card {
     background: var(--card);
     border: 1px solid var(--border);
-    padding: 12px 14px;
+    padding: 14px 16px;
     border-radius: 3px;
   }
   .stat-card.accent {
@@ -170,7 +174,7 @@
     border-color: var(--border-accent);
   }
   .stat-val {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.1;
@@ -179,30 +183,30 @@
     color: var(--accent);
   }
   .stat-lbl {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--secondary);
-    margin-top: 4px;
+    margin-top: 5px;
   }
   /* Tables */
   table.swiss-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 11.5px;
+    font-size: 13.5px;
     margin-top: 4px;
   }
   table.swiss-table th {
     background-color: var(--primary);
     color: #FFFFFF;
     text-align: left;
-    padding: 8px 10px;
+    padding: 11px 13px;
     font-weight: 600;
     letter-spacing: 0.04em;
   }
   table.swiss-table td {
-    padding: 7px 10px;
+    padding: 10px 13px;
     border-bottom: 1px solid var(--border);
     color: var(--primary);
   }
@@ -238,26 +242,26 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 38px;
+    height: 42px;
     background-color: var(--bg);
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    font-size: 11px;
+    padding: 0 44px;
+    font-size: 12px;
     color: var(--muted);
     font-weight: 500;
   }
   .nav-btn {
     background: none;
     border: 1px solid var(--border);
-    padding: 4px 10px;
-    font-size: 11px;
+    padding: 5px 12px;
+    font-size: 12px;
     color: var(--secondary);
     border-radius: 3px;
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 8px;
   }
   .nav-btn:hover {
     background-color: var(--card-muted);
@@ -265,7 +269,7 @@
   }
   .progress-bar {
     position: absolute;
-    bottom: 37px;
+    bottom: 41px;
     left: 0;
     height: 3px;
     background-color: var(--accent);
@@ -278,32 +282,28 @@
 <div id="presentation-container">
   <div class="progress-bar" id="progress"></div>
 
-  <!-- SLIDE 1: TITLE -->
+  <!-- SLIDE 1: TITLE (Lead Investigator Removed, 3 Full-Width Cards) -->
   <div class="slide active" id="slide-1" style="justify-content: center; padding: 60px 80px;">
     <div class="section-tag">RESEARCH & OPTIMIZATION REPORT // CLOUD COMPUTING</div>
-    <h1 style="font-size: 42px; font-weight: 700; color: var(--primary); line-height: 1.15; margin-bottom: 12px;">
+    <h1 style="font-size: 48px; font-weight: 700; color: var(--primary); line-height: 1.15; margin-bottom: 14px;">
       Network- & Topology-Aware<br>VM Placement Optimization
     </h1>
-    <div style="height: 2px; background: var(--border); width: 100%; margin: 16px 0 20px 0;"></div>
-    <p style="font-size: 16px; color: var(--secondary); margin-bottom: 40px; line-height: 1.4;">
+    <div style="height: 2px; background: var(--border); width: 100%; margin: 18px 0 24px 0;"></div>
+    <p style="font-size: 18px; color: var(--secondary); margin-bottom: 44px; line-height: 1.45;">
       An Evolutionary Comparative Study: Resolving the Heuristic-Burnout Dilemma via Greedy-Initialized Simulated Annealing
     </p>
-    <div class="grid-4">
-      <div class="card" style="padding: 14px;">
-        <div style="font-size: 9.5px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">CORE OBJECTIVE</div>
-        <div style="font-size: 11.5px; font-weight: 600; color: var(--primary);">Minimize Inter-VM Latency & Traffic Under Safe Headroom</div>
+    <div class="grid-3">
+      <div class="card" style="padding: 22px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">CORE RESEARCH OBJECTIVE</div>
+        <div style="font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.4;">Minimize Inter-VM Latency & Traffic Under Safe Physical Headroom</div>
       </div>
-      <div class="card" style="padding: 14px;">
-        <div style="font-size: 9.5px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">EVALUATION SCALE</div>
-        <div style="font-size: 11.5px; font-weight: 600; color: var(--primary);">100 to 1,000 VMs on 128-Server Fat-Tree (k=8)</div>
+      <div class="card" style="padding: 22px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">EVALUATION SCALE & TOPOLOGY</div>
+        <div style="font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.4;">100 to 1,000 Virtual Machines on 128-Server Fat-Tree (k=8)</div>
       </div>
-      <div class="card" style="padding: 14px;">
-        <div style="font-size: 9.5px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">ALGORITHMIC PHASES</div>
-        <div style="font-size: 11.5px; font-weight: 600; color: var(--primary);">Greedy Heuristic → Simulated Annealing → Hybrid Model</div>
-      </div>
-      <div class="card" style="padding: 14px;">
-        <div style="font-size: 9.5px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">LEAD INVESTIGATOR</div>
-        <div style="font-size: 11.5px; font-weight: 600; color: var(--primary);">Santosh Reddy // Cloud Computing Lab</div>
+      <div class="card" style="padding: 22px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">ALGORITHMIC PROGRESSION</div>
+        <div style="font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.4;">Sequential Evolutionary Study: Greedy Heuristic → Simulated Annealing → Hybrid Model</div>
       </div>
     </div>
   </div>
@@ -357,7 +357,7 @@
     <div class="grid-2">
       <div class="card">
         <div class="card-subtitle">MULTI-OBJECTIVE FORMULATION</div>
-        <p style="font-family: monospace; font-size: 13px; font-weight: 700; color: var(--primary); background: var(--card-muted); padding: 8px; border-radius: 3px; margin-bottom: 12px;">
+        <p style="font-family: monospace; font-size: 14px; font-weight: 700; color: var(--primary); background: var(--card-muted); padding: 10px; border-radius: 3px; margin-bottom: 14px;">
           min F(P) = α·(C_comm/C_ref) + β·(C_lat/L_ref) + γ·(Imb/0.5) + δ·Mig
         </p>
         <ul>
@@ -370,7 +370,7 @@
       <div class="card">
         <div class="card-subtitle">FAT-TREE NETWORK TOPOLOGY (k = 8)</div>
         <p><strong>128 Physical Servers | 80 Multi-tier Switches</strong></p>
-        <div class="img-frame" style="height: 250px; margin-top: 6px;">
+        <div class="img-frame" style="height: 290px; margin-top: 8px;">
           <img src="results/graphs/01_network_topology.png" alt="Fat-Tree Topology">
         </div>
       </div>
@@ -494,7 +494,7 @@
     <div class="slide-title">Performance Benchmark: 1,000 VMs Head-to-Head Comparison</div>
     <div class="slide-subtitle">Evaluating 1,000 VMs across 128 physical servers under identical network and physical resource constraints.</div>
     <div class="grid-2">
-      <div class="card" style="padding: 14px;">
+      <div class="card" style="padding: 18px;">
         <table class="swiss-table">
           <thead>
             <tr>
@@ -521,7 +521,7 @@
         <div class="img-frame" style="flex: 1;">
           <img src="results/graphs/05_cost_comparison.png" alt="Cost Comparison">
         </div>
-        <p style="font-size: 11px; color: var(--secondary); margin-top: 10px; line-height: 1.4;">
+        <p style="font-size: 13px; color: var(--secondary); margin-top: 12px; line-height: 1.45;">
           <strong>Key Finding:</strong> The Hybrid approach achieves the global minimum across communication cost and network latency while respecting host capacity headroom.
         </p>
       </div>
@@ -603,7 +603,7 @@
     <div class="slide-title">Multi-Scale Verification: 100 to 1,000 VMs</div>
     <div class="slide-subtitle">Empirical verification across 5 datacenter scales confirms Hybrid superiority is consistent and scalable.</div>
     <div class="grid-2">
-      <div class="card" style="padding: 14px;">
+      <div class="card" style="padding: 18px;">
         <table class="swiss-table">
           <thead>
             <tr>
@@ -622,7 +622,7 @@
             <tr><td>1,000 VMs</td><td>1.659e+06</td><td>3.588e+05</td><td class="highlight">2.502e+05</td><td class="highlight">-30.3%</td></tr>
           </tbody>
         </table>
-        <p style="font-size: 11.5px; color: var(--secondary); margin-top: 14px; line-height: 1.4;">
+        <p style="font-size: 13px; color: var(--secondary); margin-top: 16px; line-height: 1.45;">
           <strong>Near-Linear Execution Speed:</strong> 1,000 VMs optimizes in only <strong>2.79 seconds</strong> via exact O(deg(v)) incremental evaluation.
         </p>
       </div>
@@ -674,22 +674,22 @@
     </div>
   </div>
 
-  <!-- SLIDE 12: CONCLUSION -->
+  <!-- SLIDE 12: CONCLUSION (Full 4 Quadrants) -->
   <div class="slide" id="slide-12">
     <div class="section-tag">11 / CONCLUSION & DELIVERABLES</div>
     <div class="divider"></div>
     <div class="slide-title">Key Takeaways & Production Repository Overview</div>
     <div class="slide-subtitle">Summary of research findings, production deliverables, and version control branches.</div>
-    <div class="grid-2">
+    <div class="grid-4-quad">
       <div class="card">
         <div class="card-subtitle">01 / HEURISTIC COMPLEMENTARITY</div>
         <div class="card-title">Greedy Speed + SA Global Exploration</div>
-        <p>Neither heuristic is optimal alone. Greedy provides high-density community seeding, while SA untangles cross-rack traffic without dispersing communication.</p>
+        <p>Neither heuristic is optimal alone. Greedy provides high-density community seeding, while SA untangles cross-rack traffic without dispersing communication clusters.</p>
       </div>
       <div class="card">
         <div class="card-subtitle">02 / THE HEADROOM PRINCIPLE</div>
         <div class="card-title">Reliability First in Cloud Operations</div>
-        <p>Real datacenters require compute headroom. By constraining peak CPU to 92.1%, the Hybrid placement prevents server burnout while cutting comm cost by 24.6%.</p>
+        <p>Real datacenters require compute headroom. By constraining peak CPU to 92.1%, the Hybrid placement prevents server burnout while cutting communication cost by 24.6%.</p>
       </div>
       <div class="card">
         <div class="card-subtitle">03 / HIGH-THROUGHPUT ENGINE</div>
