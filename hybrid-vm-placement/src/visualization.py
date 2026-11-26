@@ -119,14 +119,14 @@ def _bar(df: pd.DataFrame, col: str, ylabel: str, title: str, path: str | Path,
     algos = [a for a in ALGORITHMS if a in set(df["algorithm"])]
     vals = [float(df.loc[df["algorithm"] == a, col].iloc[0]) for a in algos]
     bars = ax.bar(algos, vals, color=[COLORS[a] for a in algos], width=0.55)
-    ax.bar_label(bars, labels=[f"{v:.4g}" for v in vals], padding=3, color=INK, fontsize=9)
+    ax.bar_label(bars, labels=[f"{v:.4g}" for v in vals], padding=3, color="black", fontsize=9.5, fontweight="bold")
     if pct_vs in algos:
         base = vals[algos.index(pct_vs)]
         for b, a, v in zip(bars, algos, vals):
             if a != pct_vs and base:
-                ax.annotate(f"{100 * (v - base) / base:+.1f}% vs {pct_vs}",
-                            (b.get_x() + b.get_width() / 2, v / 2), ha="center", color="white",
-                            fontsize=9, fontweight="bold")
+                ax.annotate(f"{100 * (v - base) / base:+.1f}%\nvs {pct_vs}",
+                            (b.get_x() + b.get_width() / 2, v / 2), ha="center", va="center",
+                            color="black", fontsize=8.5, fontweight="bold")
     ax.set_ylabel(ylabel)
     ax.set_title(title)
     ax.margins(y=0.12)
